@@ -26,7 +26,7 @@ it('has text area and a button', () => {
   expect(wrapped.find('button').length).toEqual(1)
 })
 
-// with describe you can
+// with describe you can run multiple tests at the same time
 describe('the text area', () => {
   beforeEach(() => {
     wrapped.find('textarea').simulate('change', {
