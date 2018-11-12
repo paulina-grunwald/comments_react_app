@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as actions from 'actions'
 import {connect} from 'react-redux'
+import { fetchComments } from '../actions';
 class CommentBox extends Component {
   state = {comment: ''}
   handleChange = event => {
@@ -23,6 +24,7 @@ class CommentBox extends Component {
             <button>Submit Comment</button>
           </div>
         </form>
+        <button onClick={this.props.fetchComments}>Fetch Comment</button>
       </div>
     );
   }
