@@ -33,4 +33,3 @@ it('can fetch list of comments and display it', (done) => {
     wrapped.unmount()
   }, 100)
 })
-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa

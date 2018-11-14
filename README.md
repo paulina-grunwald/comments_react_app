@@ -1,4 +1,4 @@
-# React-testing-app
+# Comments-React-App
 
 # Getting started
 
