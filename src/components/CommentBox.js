@@ -13,6 +13,21 @@ class CommentBox extends Component {
     this.setState({ comment: '' });
   };
 
+  componentDidMount() {
+    this.shouldNavigateAway()
+  }
+
+  componentDidUpdate() {
+    this.shouldNavigateAway()
+  }
+
+  shouldNavigateAway() {
+    if(!this.props.auth) {
+      this.props.history.push('/')
+      console.log('redirect')
+    }
+  }
+
   render() {
     return (
       <div>
@@ -29,4 +44,8 @@ class CommentBox extends Component {
   }
 }
 
-export default connect(null, actions)(CommentBox)
+function mapStateToPtops(state) {
+  return {auth: state.auth}
+}
+
+export default connect(mapStateToPtops, actions)(CommentBox)
