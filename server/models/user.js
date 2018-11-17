@@ -1,15 +1,16 @@
-const mongoose = require('momgose')
-const schema = mongoose.schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 // define user model
-const userSchema = new schema({
+const userSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },
   password: String
-
 })
 
-// Create the model class
 // load schema into mongoose that coresponds to the collection called userSchema
+
+// Create the model class
 const ModelClass = mongoose.model('user', userSchema)
-// Export Model
-module.export == ModelClass
+
+// Export the model
+module.exports = ModelClass
