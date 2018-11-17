@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as actions from 'actions'
 import {connect} from 'react-redux'
+import requireAuth from 'components/requireAuth'
 class CommentBox extends Component {
   state = {comment: ''}
   handleChange = event => {
@@ -13,20 +14,6 @@ class CommentBox extends Component {
     this.setState({ comment: '' });
   };
 
-  componentDidMount() {
-    this.shouldNavigateAway()
-  }
-
-  componentDidUpdate() {
-    this.shouldNavigateAway()
-  }
-
-  shouldNavigateAway() {
-    if(!this.props.auth) {
-      this.props.history.push('/')
-      console.log('redirect')
-    }
-  }
 
   render() {
     return (
@@ -44,8 +31,5 @@ class CommentBox extends Component {
   }
 }
 
-function mapStateToPtops(state) {
-  return {auth: state.auth}
-}
-
-export default connect(mapStateToPtops, actions)(CommentBox)
+// implement HOC requireAuth
+export default connect(null, actions)(requireAuth(CommentBox))
