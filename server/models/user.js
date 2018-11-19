@@ -17,12 +17,14 @@ userSchema.pre('save', function (next) {
   bcrypt.genSalt(10, function (err, salt) {
     if (err) { return next(err) }
     // Encrypt password using salt
+    // hash (encrypt) our password using the salt
     bcrypt.hash(user.password, salt, null, function (err, hash) {
       if (err) { return next(err) }
+
+      // overwrite plain text password with encrypted password
+      user.password = hash
+      next()
     })
-    // Overwritte plain text password with encrypted password
-    user.password = hash
-    next()
   })
 })
 // load schema into mongoose that coresponds to the collection called userSchema
