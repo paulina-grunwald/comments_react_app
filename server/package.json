@@ -10,11 +10,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "mongoose": "^5.3.12",
-    "morgan": "^1.9.1",
-    "nodemon": "^1.18.6",
-    "bcrypt-nodejs": "*"
+    "bcrypt-nodejs": "*",
+    "body-parser": "*",
+    "cors": "^2.8.4",
+    "express": "*",
+    "jwt-simple": "*",
+    "mongoose": "*",
+    "morgan": "*",
+    "nodemon": "*",
+    "passport": "*",
+    "passport-jwt": "*",
+    "passport-local": "*"
   }
 }
