@@ -2,23 +2,25 @@ const jwt = require('jwt-simple')
 const User = require('../models/user')
 const config = require('../config')
 
-// Encode user id and time stamp with secret
 function tokenForUser (user) {
   const timestamp = new Date().getTime()
-  // iat - issued at time, sub - subject
   return jwt.encode({ sub: user.id, iat: timestamp }, config.secret)
 }
 
+exports.signin = function (req, res, next) {
+  // User has already had their email and password auth'd
+  // We just need to give them a token
+  res.send({ token: tokenForUser(req.user) })
+}
+
 exports.signup = function (req, res, next) {
-  // res.send({ succes: 'true' })
-  console.log(req.body)
   const email = req.body.email
   const password = req.body.password
 
-  // Check if user provided e-mail and password
   if (!email || !password) {
-    return res.status(422).send({ error: 'You must provide e-mail and password.' })
+    return res.status(422).send({ error: 'You must provide email and password' })
   }
+
   // See if a user with the given email exists
   User.findOne({ email: email }, function (err, existingUser) {
     if (err) { return next(err) }
@@ -33,7 +35,7 @@ exports.signup = function (req, res, next) {
       email: email,
       password: password
     })
-    // Save record to the database
+
     user.save(function (err) {
       if (err) { return next(err) }
 
