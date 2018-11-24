@@ -49,3 +49,12 @@ Second custom middleware was created to check if the redux state is of the right
 [Jsonschema.net](https://jsonschema.net/) is an easy tool to create Json Schema from JSON. To validate state against JSON SCHEMA we can use small package [tv4](https://github.com/geraintluff/tv4)
 
 ## 4. Server Setup - Autentification
+
+Packages used:
+- morgan - logging package 
+- body-parser - help parse incoming http requests
+- mongoose -  works with MongoDb
+- express - parses response and routing
+- nodemon - restarts server when something in the file changes so the server is updated 
+with the changes we made
+- becrypt
