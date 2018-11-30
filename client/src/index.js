@@ -9,6 +9,7 @@ import { createStore, applyMiddleware } from 'redux'
 import { BrowserRouter, Route } from 'react-router-dom'
 import Signup from './components/auth/Signup'
 import Welcome from './components/Welcome'
+import Feature from './components/Feature'
 import reducers from './reducers'
 
 const store = createStore(
@@ -23,6 +24,7 @@ ReactDOM.render(
       <App>
         <Route path='/' exact component={Welcome} />
         <Route path='/signup' exact component={Signup} />
+        <Route path='/feature' exact component={Feature} />
       </App>
     </BrowserRouter>
   </Provider>,
